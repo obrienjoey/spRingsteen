@@ -1,0 +1,98 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# spRingsteen
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+(WORK IN PROGRESS)
+
+The spRingsteen package provides a number of dataframes describing the songs,
+albums, tours, and setlists of Bruce Springsteen's career. The data (collected from [Brucebase](http://brucebase.wikidot.com/)) is provided
+in a tidy form which is easily analysed in R.
+
+## Installation
+
+You can install the development version of spRingsteen from GitHub like so:
+
+``` r
+remotes::install_github("obrienjoey/spRingsteen")
+```
+
+## Example
+
+The package includes datasets around the career of Bruce Springsteen. For example,
+the touring history of him and his numerous bands is stored in `concerts`:
+
+```{r example}
+library(spRingsteen)
+
+concerts
+
+# how many concerts have occurred in each country?
+
+concerts %>% 
+  count(country, sort = TRUE)
+```
+
+It also has information of the setlists performed in these shows which are 
+stored in `setlists`.
+
+```{r}
+setlists
+
+# what song has been played most by Springsteen?
+
+setlists %>%
+  count(song, sort = TRUE)
+```
+
+Further details of the songs themselves are available in `songs`, including
+the album of appearance and also the full lyrics in some cases. This allows for 
+some text mining or sentiment analysis using a package like tidytext.
+
+```{r}
+library(tidytext)
+
+# what word appears most frequently in the **Born in the U.S.A** album?
+
+songs %>% 
+  filter(album == "Born In The U.S.A.") %>% 
+  select(title, lyrics) %>% 
+  unnest_tokens(word, lyrics) %>% 
+  count(word, sort = TRUE) %>% 
+  anti_join(stop_words, by = 'word')
+```
+
+Lastly, the `tour` table contains the tours associated with each concert.
+
+```{r}
+tours %>% 
+  count(tour, sort = TRUE)
+```
+
+Of course the real advantage of this package is in combining the different
+dataframes in order to infer useful information:
+
+```{r}
+# what was the most played song on each tour?
+setlists %>% 
+  left_join(tours, by = 'gig_key') %>%
+  count(song, tour) %>%
+  group_by(tour) %>%
+  filter(n == max(n)) %>%
+  arrange(desc(tour))
+```

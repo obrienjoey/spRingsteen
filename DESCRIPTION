@@ -1,0 +1,23 @@
+Package: spRingsteen
+Type: Package
+Title: All Things Data and Springsteen
+Version: 0.0.0.9000
+Authors@R: c(person("Joey", "O'Brien", email = "obrienjoeyd@gmail.com", role = c("aut", "cre")))
+Maintainer: Joey O'Brien <obrienjoeyd@gmail.com>
+Description: More about what it does (maybe more than one line)
+    An R data package containing setlists from all Bruce Springsteen concerts over 1973-2021.
+    Also inclues all his song details such as lyrics and albums. Data extracted from: http://brucebase.wikidot.com/
+License: Creative Commons Attribution-ShareAlike 3.0 License
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    readr,
+    tidyr
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.1.2
+Suggests: 
+    usethis,
+    tidytext,
+    lubridate
