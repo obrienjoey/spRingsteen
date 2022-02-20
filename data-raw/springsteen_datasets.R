@@ -12,7 +12,7 @@ library(stringr)
 # CONCERTS
 
 concerts <-
-  readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/concerts.csv?token=GHSAT0AAAAAABLHLMO4TK2LHG67H3OWNZZUYQZJ5YA') %>%
+  readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/concerts.csv') %>%
     rename(gig_key = gig_url) %>%
     mutate(state = case_when(nchar(sub('.*\\, ', '', location)) == 2 ~ sub('.*\\, ', '', location),
                              TRUE ~ ''),
@@ -29,7 +29,7 @@ concerts <-
 # SETLISTS
 
 setlists <-
-  readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/setlists.csv?token=GHSAT0AAAAAABLHLMO4LZN25UUDTCFT47CSYQ2HZOA') %>%
+  readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/setlists.csv') %>%
   rename(gig_key = gig_url,
          song_key = links,
          song = songs) %>%
@@ -39,14 +39,14 @@ setlists <-
 # TOURS
 
 tours <-
-  readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/tours.csv?token=GHSAT0AAAAAABLHLMO55423MPHKONNJYMWYYQ2IHBA') %>%
+  readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/tours.csv') %>%
     rename(gig_key = gig_url) %>%
     filter(gig_key %in% concerts$gig_key)
 
 # SONGS
 
 songs <-
-  readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/songs.csv?token=GHSAT0AAAAAABLHLMO4OEQO6QIDR4Y5LHGQYQ2IWCA') %>%
+  readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/songs.csv') %>%
     rename(song_key = links,
            title = titles)
 
