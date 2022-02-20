@@ -21,7 +21,7 @@ You can install the development version of spRingsteen from GitHub like so:
 remotes::install_github("obrienjoey/spRingsteen")
 ```
 
-## Example
+## Concerts
 
 The package includes datasets around the career of Bruce Springsteen. For example,
 the touring history of him and his numerous bands is stored in `concerts`:
@@ -29,6 +29,7 @@ the touring history of him and his numerous bands is stored in `concerts`:
 
 ```r
 library(spRingsteen)
+library(dplyr)
 
 concerts
 #> # A tibble: 2,930 x 6
@@ -65,6 +66,8 @@ concerts %>%
 #> 10 Ireland      26
 #> # ... with 29 more rows
 ```
+
+## Setlists
 
 It also has information of the setlists performed in these shows which are 
 stored in `setlists`.
@@ -105,7 +108,20 @@ setlists %>%
 #>  9 Rosalita (Come Out Tonight)   812
 #> 10 Hungry Heart                  737
 #> # ... with 984 more rows
+
+# which song has most frequently opened a show?
+
+setlists %>%
+  filter(song_number == 1) %>%
+  count(song, sort = TRUE) %>%
+  slice(1)
+#> # A tibble: 1 x 2
+#>   song           n
+#>   <chr>      <int>
+#> 1 Growin' Up   272
 ```
+
+## Songs
 
 Further details of the songs themselves are available in `songs`, including
 the album of appearance and also the full lyrics in some cases. This allows for 
@@ -138,6 +154,8 @@ songs %>%
 #> 10 baby       26
 #> # ... with 503 more rows
 ```
+
+## Tours
 
 Lastly, the `tour` table contains the tours associated with each concert.
 

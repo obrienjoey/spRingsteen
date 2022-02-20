@@ -7,13 +7,16 @@
 \format{
 A data frame with 2,930 rows and 6 variables:
 \describe{
- \item{gig_key}{primrary key of the data frame.}
- \item{date}{date of the concert.}
- \item{location}{full location of concert including venue name.}
- \item{state}{state concert was performed in (if in USA).}
- \item{city}{city concert was performed in (if not in USA).}
- \item{country}{country concert was performed in.}
+ \item{gig_key}{Primary key of the data frame.}
+ \item{date}{Date of the concert.}
+ \item{location}{Full location of concert including venue name.}
+ \item{state}{State concert was performed in (if in USA).}
+ \item{city}{City in which the concert was performed (if not in USA).}
+ \item{country}{Country concert was performed in.}
  }
+}
+\source{
+\url{http://brucebase.wikidot.com/}
 }
 \usage{
 concerts
@@ -24,7 +27,6 @@ with numerous bands from the years 1973 to 2021. Can be joined with
 \code{\link{setlists}} using \code{gig_key}.
 }
 \examples{
-
 library(dplyr)
 # What countries have been played in the most?
 
@@ -40,8 +42,5 @@ concerts \%>\%
   mutate(decade = (year(date) \%/\% 10) * 10) \%>\%
   count(decade)
 
-}
-\seealso{
-\url{http://brucebase.wikidot.com/}
 }
 \keyword{datasets}

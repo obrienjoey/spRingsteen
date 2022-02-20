@@ -7,18 +7,13 @@
 \format{
 A data frame with 2,958 rows and 2 variables:
 \describe{
- \item{gig_key}{primrary key of the data frame.}
+ \item{gig_key}{Primary key of the data frame.}
  \item{tour}{Tour associated with the concert. Note some concerts have more
  than one tour associated with them.}
  }
-
-#' @examples
-
-library(dplyr)
-# How many shows were on each tour?
-
-tours %>%
-  count(tour, sort = TRUE)
+}
+\source{
+\url{http://brucebase.wikidot.com/}
 }
 \usage{
 tours
@@ -32,7 +27,12 @@ associated with more than one tour as such some of the entries from
 \code{\link{concerts}} appear twice. Can be joined with \code{\link{setlists}}
 or \code{\link{concerts}} using \code{gig_key}.
 }
-\seealso{
-\url{http://brucebase.wikidot.com/}
+\examples{
+library(dplyr)
+# How many shows were on each tour?
+
+tours \%>\%
+  count(tour, sort = TRUE)
+
 }
 \keyword{datasets}

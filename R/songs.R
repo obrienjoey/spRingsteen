@@ -6,7 +6,7 @@
 #'
 #' @format A data frame with 1,597 rows and 4 variables:
 #' \describe{
-#'  \item{song_key}{Primrary key of the data frame.}
+#'  \item{song_key}{Primary key of the data frame.}
 #'  \item{title}{Title of the song.}
 #'  \item{lyrics}{Lyrics of the song if available in the database.}
 #'  \item{album}{Name of the album on which the song appears if available in the
@@ -14,7 +14,6 @@
 #'  }
 #'
 #' @examples
-#'
 #' library(dplyr)
 #' # What are the most common albums?
 #'
@@ -32,5 +31,5 @@
 #'  count(word, sort = TRUE) %>%
 #'  anti_join(stop_words, by = 'word')
 #'
-#' @seealso \url{http://brucebase.wikidot.com/}
+#' @source \url{http://brucebase.wikidot.com/}
 "songs"

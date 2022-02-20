@@ -14,8 +14,6 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-(WORK IN PROGRESS)
-
 The spRingsteen package provides a number of dataframes describing the songs,
 albums, tours, and setlists of Bruce Springsteen's career. The data (collected from [Brucebase](http://brucebase.wikidot.com/)) is provided
 in a tidy form which is easily analysed in R.
@@ -28,13 +26,14 @@ You can install the development version of spRingsteen from GitHub like so:
 remotes::install_github("obrienjoey/spRingsteen")
 ```
 
-## Example
+## Concerts
 
 The package includes datasets around the career of Bruce Springsteen. For example,
 the touring history of him and his numerous bands is stored in `concerts`:
 
 ```{r example}
 library(spRingsteen)
+library(dplyr)
 
 concerts
 
@@ -43,6 +42,8 @@ concerts
 concerts %>% 
   count(country, sort = TRUE)
 ```
+
+## Setlists
 
 It also has information of the setlists performed in these shows which are 
 stored in `setlists`.
@@ -54,7 +55,16 @@ setlists
 
 setlists %>%
   count(song, sort = TRUE)
+
+# which song has most frequently opened a show?
+
+setlists %>%
+  filter(song_number == 1) %>%
+  count(song, sort = TRUE) %>%
+  slice(1)
 ```
+
+## Songs
 
 Further details of the songs themselves are available in `songs`, including
 the album of appearance and also the full lyrics in some cases. This allows for 
@@ -72,6 +82,8 @@ songs %>%
   count(word, sort = TRUE) %>% 
   anti_join(stop_words, by = 'word')
 ```
+
+## Tours
 
 Lastly, the `tour` table contains the tours associated with each concert.
 
