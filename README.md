@@ -7,8 +7,6 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-(WORK IN PROGRESS)
-
 The spRingsteen package provides a number of dataframes describing the songs,
 albums, tours, and setlists of Bruce Springsteen's career. The data (collected from [Brucebase](http://brucebase.wikidot.com/)) is provided
 in a tidy form which is easily analysed in R.
