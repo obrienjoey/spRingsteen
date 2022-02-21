@@ -9,7 +9,7 @@
 
 The spRingsteen package provides a number of dataframes describing the songs,
 albums, tours, and setlists of Bruce Springsteen's career. The data (collected from [Brucebase](http://brucebase.wikidot.com/)) is provided
-in a tidy form which is easily analysed in `R`. The scripts which are used to scrape the data in their entirety, alongside a SLQlite representation of the data may be viewed at a second repository [`springsteen_db`](https://github.com/obrienjoey/springsteen_db).
+in a tidy form which is easily analysed in `R`. The scripts which are used to scrape the data in their entirety, alongside a SQLite representation of the data may be viewed at a second repository [`springsteen_db`](https://github.com/obrienjoey/springsteen_db).
 
 ## Installation
 
@@ -28,6 +28,14 @@ the touring history of him and his numerous bands is stored in `concerts`:
 ```r
 library(spRingsteen)
 library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
 
 concerts
 #> # A tibble: 2,930 x 6
