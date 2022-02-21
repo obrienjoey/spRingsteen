@@ -10,7 +10,7 @@
 
 The spRingsteen package provides a number of dataframes describing the songs,
 albums, tours, and setlists of Bruce Springsteen's career. The data (collected from [Brucebase](http://brucebase.wikidot.com/)) is provided
-in a tidy form which is easily analysed in `R`. The scripts which are used to scrape the data in their entirety, alongside a SQLite representation of the data may be viewed at a second repository [`springsteen_db`](https://github.com/obrienjoey/springsteen_db).
+in a tidy form which is easily analyzed in `R`. The scripts which are used to scrape the data in their entirety, alongside a SQLite representation of the data may be viewed at a second repository [`springsteen_db`](https://github.com/obrienjoey/springsteen_db).
 
 ## Installation
 
