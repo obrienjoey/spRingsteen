@@ -12,6 +12,7 @@ knitr::opts_chunk$set(
 # spRingsteen
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/obrienjoey/spRingsteen/workflows/R-CMD-check/badge.svg)](https://github.com/obrienjoey/spRingsteen/actions)
 <!-- badges: end -->
 
 The spRingsteen package provides a number of dataframes describing the songs,

@@ -5,6 +5,7 @@
 # spRingsteen
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/obrienjoey/spRingsteen/workflows/R-CMD-check/badge.svg)](https://github.com/obrienjoey/spRingsteen/actions)
 <!-- badges: end -->
 
 The spRingsteen package provides a number of dataframes describing the songs,
@@ -28,14 +29,6 @@ the touring history of him and his numerous bands is stored in `concerts`:
 ```r
 library(spRingsteen)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 
 concerts
 #> # A tibble: 2,930 x 6
