@@ -3,7 +3,7 @@ library(tidyr)
 library(dplyr)
 library(stringr)
 
-# Download the dataset from github repo which contains sqllite database
+# Download the dataset from github repo which contains SQLite database
 # and spreadsheets which are updated daily to incorporate new setlists.
 # https://github.com/obrienjoey/springsteen_db/tree/main/csv
 
