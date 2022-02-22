@@ -2,10 +2,11 @@
 
 
 
-# spRingsteen
+# spRingsteen <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/obrienjoey/spRingsteen/workflows/R-CMD-check/badge.svg)](https://github.com/obrienjoey/spRingsteen/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/spRingsteen)](https://CRAN.R-project.org/package=spRingsteen)
 <!-- badges: end -->
 
 The spRingsteen package provides a number of dataframes describing the songs,
