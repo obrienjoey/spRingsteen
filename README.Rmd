@@ -22,7 +22,13 @@ in a tidy form which is easily analyzed in `R`. The scripts which are used to sc
 
 ## Installation
 
-You can install the development version of spRingsteen from GitHub like so:
+You can install the released version of spRingsteen from [CRAN](https://cran.r-project.org/package=spRingsteen) with:
+
+``` r
+install.packages("spRingsteen")
+```
+
+Alternatively, you can install the development version of spRingsteen from GitHub like so:
 
 ``` r
 remotes::install_github("obrienjoey/spRingsteen")
