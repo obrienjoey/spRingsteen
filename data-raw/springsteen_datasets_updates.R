@@ -2,12 +2,13 @@ library(tidyr)
 library(dplyr)
 
 update_spRingsteen_data <- function(){
+
   flag <- FALSE
 
   # check if there are concert updates
   concerts_current <- spRingsteen::concerts
 
-  concerts_git <- readr::read_csv("https://raw.githubusercontent.com/obrienjoey/springsteen_db/master/csv/concerts.csv") %>%
+  concerts <- readr::read_csv("https://raw.githubusercontent.com/obrienjoey/springsteen_db/master/csv/concerts.csv") %>%
     rename(gig_key = gig_url) %>%
     mutate(state = case_when(nchar(sub('.*\\, ', '', location)) == 2 ~ sub('.*\\, ', '', location),
                              TRUE ~ ''),
@@ -21,7 +22,7 @@ update_spRingsteen_data <- function(){
            date = as.Date(date, format = '%Y-%M-%d')) %>%
     mutate(across(where(is.character), ~ if_else(.x == '', NA_character_ ,.x)))
 
-  if(identical(concerts_current, concerts_git)){
+  if(identical(concerts_current, concerts)){
     print('no concert updates')
   } else{
     usethis::use_data(concerts, overwrite = TRUE)
@@ -31,14 +32,14 @@ update_spRingsteen_data <- function(){
   # check if there are setlist updates
   setlists_current <- spRingsteen::setlists
 
-  setlists_git <- readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/setlists.csv') %>%
+  setlists <- readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/setlists.csv') %>%
     rename(gig_key = gig_url,
            song_key = links,
            song = songs) %>%
     mutate(song_number = as.integer(song_number),
            song = stringr::str_to_title(song))
 
-  if(identical(setlists_current, setlists_git)){
+  if(identical(setlists_current, setlists)){
     print('no setlist updates')
   } else{
     usethis::use_data(setlists, overwrite = TRUE)
@@ -48,11 +49,11 @@ update_spRingsteen_data <- function(){
   # check if there are song updates
   songs_current <- spRingsteen::songs
 
-  songs_git <- readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/songs.csv') %>%
+  songs <- readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/songs.csv') %>%
     rename(song_key = links,
            title = titles)
 
-  if(identical(songs_current, songs_git)){
+  if(identical(songs_current, songs)){
     print('no song updates')
   } else{
     usethis::use_data(songs, overwrite = TRUE)
@@ -60,11 +61,11 @@ update_spRingsteen_data <- function(){
   }
 
   # check if there are tour updates
-  tours_git <- readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/tours.csv') %>%
+  tours <- readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/tours.csv') %>%
     rename(gig_key = gig_url) %>%
-    filter(gig_key %in% concerts_git$gig_key)
+    filter(gig_key %in% concerts$gig_key)
 
-  if(identical(tours_current, tours_git)){
+  if(identical(tours_current, tours)){
     print('no tour updates')
   } else{
     usethis::use_data(tours, overwrite = TRUE)
