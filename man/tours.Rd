@@ -5,7 +5,7 @@
 \alias{tours}
 \title{Tour information for concerts in the spRingsteen dataset.}
 \format{
-A data frame with 2 variables:
+A data frame with 2,958 rows and 2 variables:
 \describe{
  \item{gig_key}{Primary key of the data frame.}
  \item{tour}{Tour associated with the concert. Note some concerts have more
@@ -20,7 +20,7 @@ tours
 }
 \description{
 Data describing the tours associated with concerts played by Bruce
-Springsteen both solo and with numerous bands from the years 1973 to present day.
+Springsteen both solo and with numerous bands from the years 1973 to 2021.
 Note that concerts prior to 1973 and non-tour, e.g., practice shows,
 promotion shows, have been removed. Furthermore some of the shows are
 associated with more than one tour as such some of the entries from

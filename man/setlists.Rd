@@ -5,7 +5,7 @@
 \alias{setlists}
 \title{Metadata for setlists in the spRingsteen dataset.}
 \format{
-A data frame with 4 variables:
+A data frame with 52,100 rows and 4 variables:
 \describe{
  \item{gig_key}{Key associated with the concert which the setlist is from.}
  \item{song_key}{Key associated with the song played.}
@@ -21,7 +21,7 @@ setlists
 }
 \description{
 Metadata for the setlists of concerts played by Bruce Springsteen
-both solo and with numerous bands from the years 1973 to present day.
+both solo and with numerous bands from the years 1973 to 2021.
 }
 \examples{
 library(dplyr)

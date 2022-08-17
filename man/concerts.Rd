@@ -5,7 +5,7 @@
 \alias{concerts}
 \title{Metadata for concerts in the spRingsteen dataset.}
 \format{
-A data frame with 6 variables:
+A data frame with 2,930 rows and 6 variables:
 \describe{
  \item{gig_key}{Primary key of the data frame.}
  \item{date}{Date of the concert.}
@@ -23,7 +23,7 @@ concerts
 }
 \description{
 Metadata for concerts played by Bruce Springsteen both solo and
-with numerous bands from the years 1973 to present day. Can be joined with
+with numerous bands from the years 1973 to 2021. Can be joined with
 \code{\link{setlists}} using \code{gig_key}.
 }
 \examples{
