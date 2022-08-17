@@ -14,8 +14,7 @@ jobs:
     - uses: r-lib/actions/setup-r@master
     # Set-up R
     - name: Install Packages
-      run: |
-        install.packages(c('spRingsteen', 'readr', 'tidyr', 'dplyr', 'usethis'))
+      run: Rscript -e "install.packages(c('spRingsteen', 'readr', 'tidyr', 'dplyr', 'usethis'))" -e "remotes::install_deps(dependencies = TRUE)"
     # Run R data update script
     - name: Update package Data
       run: Rscript -e "source('./data-raw/springsteen_datasets_updates.R'); update_spRingsteen_data()"
