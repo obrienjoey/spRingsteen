@@ -61,6 +61,8 @@ update_spRingsteen_data <- function(){
   }
 
   # check if there are tour updates
+  tours_current <- spRingsteen::tours
+
   tours <- readr::read_csv('https://raw.githubusercontent.com/obrienjoey/springsteen_db/main/csv/tours.csv') %>%
     rename(gig_key = gig_url) %>%
     filter(gig_key %in% concerts$gig_key)
