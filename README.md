@@ -27,7 +27,20 @@ Alternatively, you can install the development version of spRingsteen from GitHu
 remotes::install_github("obrienjoey/spRingsteen")
 ```
 
-## Concerts
+## Data refresh
+
+While the **spRingsteen** [CRAN version](https://cran.r-project.org/package=spRingsteen) is updated every few months, the [Github (Dev) version](https://github.com/obrienjoey/spRingsteen) is updated on a daily basis. The `update_data` function enables to overcome this gap and keep the installed version with the most recent data available on the Github version:
+
+``` r
+library(spRingsteen)
+update_data()
+```
+
+**Note:** must restart the R session to have the updates available
+
+## Usage
+
+### Concerts
 
 The package includes datasets around the career of Bruce Springsteen. For example,
 the touring history of him and his numerous bands is stored in `concerts`:
@@ -73,7 +86,7 @@ concerts %>%
 #> # ... with 29 more rows
 ```
 
-## Setlists
+### Setlists
 
 It also has information of the setlists performed in these shows which are 
 stored in `setlists`.
@@ -82,18 +95,18 @@ stored in `setlists`.
 ```r
 setlists
 #> # A tibble: 52,100 x 4
-#>    gig_key                                       song_key            song           song_number
-#>    <chr>                                         <chr>               <chr>                <int>
-#>  1 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:it-s-hard-to~ It's Hard To ~           1
-#>  2 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:santa-ana     Santa Ana                2
-#>  3 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:secret-to-th~ Secret To The~           3
-#>  4 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:new-york-song New York Song            4
-#>  5 /gig:1973-01-08-paul-s-mall-boston-ma-early   /song:growin-up     Growin' Up               1
-#>  6 /gig:1973-01-09-wbcn-studio-boston-ma         /song:satin-doll    Satin Doll               1
-#>  7 /gig:1973-01-09-wbcn-studio-boston-ma         /song:bishop-danced Bishop Danced            2
-#>  8 /gig:1973-01-09-wbcn-studio-boston-ma         /song:wild-billy-s~ Circus Song              3
-#>  9 /gig:1973-01-09-wbcn-studio-boston-ma         /song:song-for-orp~ Song For Orph~           4
-#> 10 /gig:1973-01-09-wbcn-studio-boston-ma         /song:does-this-bu~ Does This Bus~           5
+#>    gig_key                                       song_key                     song  song_number
+#>    <chr>                                         <chr>                        <chr>       <int>
+#>  1 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:it-s-hard-to-be-a-sai~ It's~           1
+#>  2 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:santa-ana              Sant~           2
+#>  3 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:secret-to-the-blues    Secr~           3
+#>  4 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:new-york-song          New ~           4
+#>  5 /gig:1973-01-08-paul-s-mall-boston-ma-early   /song:growin-up              Grow~           1
+#>  6 /gig:1973-01-09-wbcn-studio-boston-ma         /song:satin-doll             Sati~           1
+#>  7 /gig:1973-01-09-wbcn-studio-boston-ma         /song:bishop-danced          Bish~           2
+#>  8 /gig:1973-01-09-wbcn-studio-boston-ma         /song:wild-billy-s-circus-s~ Circ~           3
+#>  9 /gig:1973-01-09-wbcn-studio-boston-ma         /song:song-for-orphans       Song~           4
+#> 10 /gig:1973-01-09-wbcn-studio-boston-ma         /song:does-this-bus-stop-at~ Does~           5
 #> # ... with 52,090 more rows
 
 # what song has been played most by Springsteen?
@@ -127,7 +140,7 @@ setlists %>%
 #> 1 Growin' Up   272
 ```
 
-## Songs
+### Songs
 
 Further details of the songs themselves are available in `songs`, including
 the album of appearance and also the full lyrics in some cases. This allows for 
@@ -136,6 +149,7 @@ some text mining or sentiment analysis using a package like tidytext.
 
 ```r
 library(tidytext)
+#> Warning: package 'tidytext' was built under R version 4.1.3
 
 # what word appears most frequently in the **Born in the U.S.A** album?
 
@@ -161,7 +175,7 @@ songs %>%
 #> # ... with 503 more rows
 ```
 
-## Tours
+### Tours
 
 Lastly, the `tour` table contains the tours associated with each concert.
 

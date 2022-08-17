@@ -1,10 +1,10 @@
 #' Data for all songs in the spRingsteen dataset.
 #'
 #' Data describing all songs which have been played by Bruce Springsteen both
-#' solo and with numerous bands from the year 1973 to 2021. Can be joined with
+#' solo and with numerous bands from the year 1973 to present day. Can be joined with
 #' \code{\link{setlists}} using \code{song_key}.
 #'
-#' @format A data frame with 1,597 rows and 4 variables:
+#' @format A data frame with 4 variables:
 #' \describe{
 #'  \item{song_key}{Primary key of the data frame.}
 #'  \item{title}{Title of the song.}

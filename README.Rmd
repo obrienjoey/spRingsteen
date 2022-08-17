@@ -34,7 +34,20 @@ Alternatively, you can install the development version of spRingsteen from GitHu
 remotes::install_github("obrienjoey/spRingsteen")
 ```
 
-## Concerts
+## Data refresh
+
+While the **spRingsteen** [CRAN version](https://cran.r-project.org/package=spRingsteen) is updated every few months, the [Github (Dev) version](https://github.com/obrienjoey/spRingsteen) is updated on a daily basis. The `update_data` function enables to overcome this gap and keep the installed version with the most recent data available on the Github version:
+
+``` r
+library(spRingsteen)
+update_data()
+```
+
+**Note:** must restart the R session to have the updates available
+
+## Usage
+
+### Concerts
 
 The package includes datasets around the career of Bruce Springsteen. For example,
 the touring history of him and his numerous bands is stored in `concerts`:
@@ -51,7 +64,7 @@ concerts %>%
   count(country, sort = TRUE)
 ```
 
-## Setlists
+### Setlists
 
 It also has information of the setlists performed in these shows which are 
 stored in `setlists`.
@@ -72,7 +85,7 @@ setlists %>%
   slice(1)
 ```
 
-## Songs
+### Songs
 
 Further details of the songs themselves are available in `songs`, including
 the album of appearance and also the full lyrics in some cases. This allows for 
@@ -91,7 +104,7 @@ songs %>%
   anti_join(stop_words, by = 'word')
 ```
 
-## Tours
+### Tours
 
 Lastly, the `tour` table contains the tours associated with each concert.
 
