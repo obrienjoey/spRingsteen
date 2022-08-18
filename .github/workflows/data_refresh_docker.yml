@@ -4,7 +4,7 @@ on:
   push:
   schedule:
     - cron:  '00 06 * * *'
-jobs: 
+jobs:
   NewSetlistScrape:
     # The type of runner that the job will run on
     runs-on: windows-latest
@@ -12,16 +12,16 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
-    #- uses: r-lib/actions/setup-r-dependencies@v1
+    - uses: r-lib/actions/setup-r-dependencies@v1
     # Set-up R
     - name: Install Packages
       run: Rscript -e "install.packages(c('spRingsteen', 'readr', 'tidyr', 'dplyr', 'usethis'))"
     # Run R data update script
     - name: Update package Data
       run: Rscript -e "source('./data-raw/springsteen_datasets_updates.R'); update_spRingsteen_data()"
-      
+
  # Add new files in data folder, commit along with other modified files, push
-    - name: Commit Files 
+    - name: Commit Files
       run: |
         git config --local user.name 'obrienjoey'
         git config --local user.email "mr.joeyob@gmail.com"
