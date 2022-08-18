@@ -1,7 +1,7 @@
 Package: spRingsteen
 Type: Package
 Title: All Things Data and Springsteen
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: c(person("Joey", "O'Brien", email = "obrienjoeyd@gmail.com", role = c("aut", "cre")))
 Maintainer: Joey O'Brien <obrienjoeyd@gmail.com>
 Description: An R data package containing setlists from all Bruce Springsteen concerts over 1973-2021. 
