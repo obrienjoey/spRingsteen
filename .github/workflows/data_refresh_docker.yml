@@ -1,7 +1,6 @@
 name: Springsteen data update
 # Controls when the action will run.
 on:
-  push:
   schedule:
     - cron:  '00 06 * * *'
 jobs:
