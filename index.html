@@ -37,7 +37,7 @@
     
     <a class="navbar-brand me-2" href="index.html">spRingsteen</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,10 +89,22 @@
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"obrienjoey/spRingsteen"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="concerts">Concerts<a class="anchor" aria-label="anchor" href="#concerts"></a>
+<h2 id="data-refresh">Data refresh<a class="anchor" aria-label="anchor" href="#data-refresh"></a>
 </h2>
-<p>The package includes datasets around the career of Bruce Springsteen. For example, the touring history of him and his numerous bands is stored in <code>concerts</code>:</p>
+<p>While the <strong>spRingsteen</strong> <a href="https://cran.r-project.org/package=spRingsteen" class="external-link">CRAN version</a> is updated every few months, the <a href="https://github.com/obrienjoey/spRingsteen" class="external-link">Github (Dev) version</a> is updated on a daily basis. The <code>update_data</code> function enables to overcome this gap and keep the installed version with the most recent data available on the Github version:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/obrienjoey/spRingsteen" class="external-link">spRingsteen</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/update_data.html">update_data</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Note:</strong> must restart the R session to have the updates available</p>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<div class="section level3">
+<h3 id="concerts">Concerts<a class="anchor" aria-label="anchor" href="#concerts"></a>
+</h3>
+<p>The package includes datasets around the career of Bruce Springsteen. For example, the touring history of him and his numerous bands is stored in <code>concerts</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/obrienjoey/spRingsteen" class="external-link">spRingsteen</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -131,25 +143,25 @@
 <span><span class="co">#&gt; 10 Ireland      26</span></span>
 <span><span class="co">#&gt; # ... with 29 more rows</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="setlists">Setlists<a class="anchor" aria-label="anchor" href="#setlists"></a>
-</h2>
+<div class="section level3">
+<h3 id="setlists">Setlists<a class="anchor" aria-label="anchor" href="#setlists"></a>
+</h3>
 <p>It also has information of the setlists performed in these shows which are stored in <code>setlists</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">setlists</span></span>
 <span><span class="co">#&gt; # A tibble: 52,100 x 4</span></span>
-<span><span class="co">#&gt;    gig_key                                       song_key            song           song_number</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                                         &lt;chr&gt;               &lt;chr&gt;                &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  1 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:it-s-hard-to~ It's Hard To ~           1</span></span>
-<span><span class="co">#&gt;  2 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:santa-ana     Santa Ana                2</span></span>
-<span><span class="co">#&gt;  3 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:secret-to-th~ Secret To The~           3</span></span>
-<span><span class="co">#&gt;  4 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:new-york-song New York Song            4</span></span>
-<span><span class="co">#&gt;  5 /gig:1973-01-08-paul-s-mall-boston-ma-early   /song:growin-up     Growin' Up               1</span></span>
-<span><span class="co">#&gt;  6 /gig:1973-01-09-wbcn-studio-boston-ma         /song:satin-doll    Satin Doll               1</span></span>
-<span><span class="co">#&gt;  7 /gig:1973-01-09-wbcn-studio-boston-ma         /song:bishop-danced Bishop Danced            2</span></span>
-<span><span class="co">#&gt;  8 /gig:1973-01-09-wbcn-studio-boston-ma         /song:wild-billy-s~ Circus Song              3</span></span>
-<span><span class="co">#&gt;  9 /gig:1973-01-09-wbcn-studio-boston-ma         /song:song-for-orp~ Song For Orph~           4</span></span>
-<span><span class="co">#&gt; 10 /gig:1973-01-09-wbcn-studio-boston-ma         /song:does-this-bu~ Does This Bus~           5</span></span>
+<span><span class="co">#&gt;    gig_key                                       song_key                     song  song_number</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                                         &lt;chr&gt;                        &lt;chr&gt;       &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:it-s-hard-to-be-a-sai~ It's~           1</span></span>
+<span><span class="co">#&gt;  2 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:santa-ana              Sant~           2</span></span>
+<span><span class="co">#&gt;  3 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:secret-to-the-blues    Secr~           3</span></span>
+<span><span class="co">#&gt;  4 /gig:1973-01-03-main-point-bryn-mawr-pa-early /song:new-york-song          New ~           4</span></span>
+<span><span class="co">#&gt;  5 /gig:1973-01-08-paul-s-mall-boston-ma-early   /song:growin-up              Grow~           1</span></span>
+<span><span class="co">#&gt;  6 /gig:1973-01-09-wbcn-studio-boston-ma         /song:satin-doll             Sati~           1</span></span>
+<span><span class="co">#&gt;  7 /gig:1973-01-09-wbcn-studio-boston-ma         /song:bishop-danced          Bish~           2</span></span>
+<span><span class="co">#&gt;  8 /gig:1973-01-09-wbcn-studio-boston-ma         /song:wild-billy-s-circus-s~ Circ~           3</span></span>
+<span><span class="co">#&gt;  9 /gig:1973-01-09-wbcn-studio-boston-ma         /song:song-for-orphans       Song~           4</span></span>
+<span><span class="co">#&gt; 10 /gig:1973-01-09-wbcn-studio-boston-ma         /song:does-this-bus-stop-at~ Does~           5</span></span>
 <span><span class="co">#&gt; # ... with 52,090 more rows</span></span>
 <span></span>
 <span><span class="co"># what song has been played most by Springsteen?</span></span>
@@ -182,12 +194,13 @@
 <span><span class="co">#&gt;   &lt;chr&gt;      &lt;int&gt;</span></span>
 <span><span class="co">#&gt; 1 Growin' Up   272</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="songs">Songs<a class="anchor" aria-label="anchor" href="#songs"></a>
-</h2>
+<div class="section level3">
+<h3 id="songs">Songs<a class="anchor" aria-label="anchor" href="#songs"></a>
+</h3>
 <p>Further details of the songs themselves are available in <code>songs</code>, including the album of appearance and also the full lyrics in some cases. This allows for some text mining or sentiment analysis using a package like tidytext.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/juliasilge/tidytext" class="external-link">tidytext</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'tidytext' was built under R version 4.1.3</span></span>
 <span></span>
 <span><span class="co"># what word appears most frequently in the **Born in the U.S.A** album?</span></span>
 <span></span>
@@ -212,11 +225,11 @@
 <span><span class="co">#&gt; 10 baby       26</span></span>
 <span><span class="co">#&gt; # ... with 503 more rows</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="tours">Tours<a class="anchor" aria-label="anchor" href="#tours"></a>
-</h2>
+<div class="section level3">
+<h3 id="tours">Tours<a class="anchor" aria-label="anchor" href="#tours"></a>
+</h3>
 <p>Lastly, the <code>tour</code> table contains the tours associated with each concert.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tours</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">tour</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 24 x 2</span></span>
@@ -234,7 +247,7 @@
 <span><span class="co">#&gt; 10 The Rising Tour                                      120</span></span>
 <span><span class="co">#&gt; # ... with 14 more rows</span></span></code></pre></div>
 <p>Of course the real advantage of this package is in combining the different dataframes in order to infer useful information:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># what was the most played song on each tour?</span></span>
 <span><span class="va">setlists</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">tours</span>, by <span class="op">=</span> <span class="st">'gig_key'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -257,6 +270,7 @@
 <span><span class="co">#&gt;  9 Born To Run                Tunnel Of Love Express Tour    67</span></span>
 <span><span class="co">#&gt; 10 Brilliant Disguise         Tunnel Of Love Express Tour    67</span></span>
 <span><span class="co">#&gt; # ... with 85 more rows</span></span></code></pre></div>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
