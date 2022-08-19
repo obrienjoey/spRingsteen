@@ -3,6 +3,7 @@ name: Springsteen data update
 on:
   schedule:
     - cron:  '00 06 * * *'
+  workflow_dispatch:
 jobs:
   NewSetlistScrape:
     # The type of runner that the job will run on
