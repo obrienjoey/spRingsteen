@@ -12,7 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
-    #- uses: r-lib/actions/setup-r-dependencies@v1
+    - uses: r-lib/actions/setup-r-dependencies@v1
+      with:
+        extra-packages: gert
     # Set-up R
     - name: Install Packages
       run: Rscript -e "install.packages(c('spRingsteen', 'readr', 'tidyr', 'dplyr', 'usethis'))"
