@@ -4,30 +4,28 @@ on:
   schedule:
     - cron:  '00 06 * * *'
   workflow_dispatch:
-jobs:
-  NewSetlistScrape:
+jobs: 
+  CovidDataScrape:
     # The type of runner that the job will run on
-    runs-on: macOS-latest
+    runs-on: macOS-latestt
     # Load repo and install R
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
-    - uses: r-lib/actions/setup-r-dependencies@v1
     # Set-up R
     - name: Install Packages
       run: Rscript -e "install.packages(c('spRingsteen', 'readr', 'tidyr', 'dplyr', 'usethis'))"
     # Run R data update script
     - name: Update package Data
-      run: Rscript -e "source('./data-raw/springsteen_datasets_updates.R'); update_spRingsteen_data()"
-
- # Add new files in data folder, commit along with other modified files, push
-    - name: Commit Files
+      run: Rscript -e "source('./data-raw/springsteen_datasets_updates.R'); update_spRingsteen_data()"     
+    # Add new files in data folder, commit along with other modified files, push
+    - name: Commit Files 
       run: |
         git config --local user.name 'obrienjoey'
         git config --local user.email "mr.joeyob@gmail.com"
-        git add data/*
+        git add data/*.rda
         git commit -am "updated setlist data $(date)"
         git push origin main
       env:
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}
-        username: github-actions
+        username: obrienjoey
