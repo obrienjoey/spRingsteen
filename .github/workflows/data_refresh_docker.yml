@@ -15,6 +15,11 @@ jobs:
     # Set-up R
     - name: Install Packages
       run: Rscript -e "install.packages(c('spRingsteen', 'readr', 'tidyr', 'dplyr', 'usethis'))"
+    - name: Install macOS system dependencies
+      if: runner.os == 'macOS'
+      run: |
+        brew install imagemagick@6
+        brew install libgit2
     # Run R data update script
     - name: Update package Data
       run: Rscript -e "source('./data-raw/springsteen_datasets_updates.R'); update_spRingsteen_data()"     
