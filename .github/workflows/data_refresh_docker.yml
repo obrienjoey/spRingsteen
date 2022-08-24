@@ -7,19 +7,15 @@ on:
 jobs: 
   SpringsteenDataUpdate:
     # The type of runner that the job will run on
-    runs-on: macOS-latest
+    runs-on: ubuntu-20.04
     # Load repo and install R
     steps:
     - uses: actions/checkout@master
     - uses: r-lib/actions/setup-r@master
+    - uses: r-lib/actions/setup-r-dependencies@v2
     # Set-up R
     - name: Install Packages
       run: Rscript -e "install.packages(c('spRingsteen', 'readr', 'tidyr', 'dplyr', 'usethis'))"
-    - name: Install macOS system dependencies
-      if: runner.os == 'macOS'
-      run: |
-        brew install imagemagick@6
-        brew install libgit2
     # Run R data update script
     - name: Update package Data
       run: Rscript -e "source('./data-raw/springsteen_datasets_updates.R'); update_spRingsteen_data()"     
